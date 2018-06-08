@@ -40,3 +40,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+target/
+.project
+.classpath
+
