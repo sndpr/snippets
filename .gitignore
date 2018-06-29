@@ -49,3 +49,7 @@ target/
 .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml
 .idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml
 .idea/libraries/Maven__com_wds_claimrecordation_claimrecordation_erv_external_model_1_0_0_SNAPSHOT.xml
+.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml
+.idea/libraries/Maven__junit_junit_4_12.xml
+.idea/misc.xml
+snippets.iml
