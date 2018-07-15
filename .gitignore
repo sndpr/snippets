@@ -56,3 +56,4 @@ snippets.iml
 /.idea/
 /.settings/
 .settings/org.eclipse.jdt.core.prefs
+*.prefs
