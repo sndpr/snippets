@@ -1,16 +1,15 @@
 package org.psc.misc.snippets;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 public class StreamSnippet {
 	private static final Logger LOGGER = LoggerFactory.getLogger(StreamSnippet.class);

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class FairDistributor {
 
-	static int equal(int[] arr) {
+	private static int equal(int[] arr) {
 		// Complete this function
 		List<Integer> distinctValues = Arrays.stream(arr).boxed().distinct().collect(Collectors.toList());
 
