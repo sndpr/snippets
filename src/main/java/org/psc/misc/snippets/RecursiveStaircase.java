@@ -69,8 +69,10 @@ public class RecursiveStaircase {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
             StepConfiguration that = (StepConfiguration) o;
             return totalSteps == that.totalSteps &&
                     allowedSteps == that.allowedSteps;

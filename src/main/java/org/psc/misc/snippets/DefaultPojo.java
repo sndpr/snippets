@@ -13,7 +13,7 @@ import lombok.experimental.Wither;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DefaultPojo {
-	private String name;
-	private BigInteger id;
-	private List<String> infos;
+    private String name;
+    private BigInteger id;
+    private List<String> infos;
 }

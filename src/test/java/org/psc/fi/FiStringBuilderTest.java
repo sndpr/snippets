@@ -10,10 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FiStringBuilderTest {
 
-	@Test
-	public void testFiStringBuilder() {
-		String concatenatedString = new FiStringBuilder().apply("asdasd", ", ", "sdadsad", ": qwewqeqw");
-		assertNotNull(concatenatedString);
-		log.info(concatenatedString);
-	}
+    @Test
+    public void testFiStringBuilder() {
+        String concatenatedString = new FiStringBuilder().apply("asdasd", ", ", "sdadsad", ": qwewqeqw");
+        assertNotNull(concatenatedString);
+        log.info(concatenatedString);
+    }
 }

@@ -10,15 +10,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LombokTester {
-	private static final Logger LOGGER = LoggerFactory.getLogger(LombokTester.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LombokTester.class);
 
-	@Test
-	public void test() {
-		DefaultPojo pojo = new DefaultPojo("defPojo", BigInteger.valueOf(512), new ArrayList<String>());
+    @Test
+    public void test() {
+        DefaultPojo pojo = new DefaultPojo("defPojo", BigInteger.valueOf(512), new ArrayList<String>());
 
-		LOGGER.info(pojo.getName());
-		assertEquals(pojo.getId(), BigInteger.valueOf(512));
+        LOGGER.info(pojo.getName());
+        assertEquals(pojo.getId(), BigInteger.valueOf(512));
 
-	}
+    }
 
 }
