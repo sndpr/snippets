@@ -11,17 +11,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MicroClockTest {
 
-	@Test
-	public void testMicroClock() throws InterruptedException {
-		Clock microClock = new MicroClock();
-		Timestamp now = Timestamp.from(microClock.instant());
-		log.info("now = {}", now.toString());
+    @Test
+    public void testMicroClock() throws InterruptedException {
+        Clock microClock = new MicroClock();
+        Timestamp now = Timestamp.from(microClock.instant());
+        log.info("now = {}", now.toString());
 
-		Thread.sleep(1234);
+        Thread.sleep(1234);
 
-		Timestamp now1 = Timestamp.from(microClock.instant());
-		Timestamp now2 = Timestamp.from(microClock.instant());
-		log.info("now1 = {}", now1.toString());
-		log.info("now2 = {}", now2.toString());
-	}
+        Timestamp now1 = Timestamp.from(microClock.instant());
+        Timestamp now2 = Timestamp.from(microClock.instant());
+        log.info("now1 = {}", now1.toString());
+        log.info("now2 = {}", now2.toString());
+    }
 }
