@@ -7,27 +7,27 @@ import java.time.temporal.ChronoField;
 
 public class MicroClock extends Clock {
 
-	private Clock clock = Clock.systemDefaultZone();
-	private Instant start = Instant.now().with(ChronoField.NANO_OF_SECOND,
-			(int) (((int) (Instant.now().getNano() / 1e6)) * 1e6));
-	private long microsStart = System.nanoTime() / 1000;
+    private Clock clock = Clock.systemDefaultZone();
+    private Instant start = Instant.now().with(ChronoField.NANO_OF_SECOND,
+            (int) (((int) (Instant.now().getNano() / 1e6)) * 1e6));
+    private long microsStart = System.nanoTime() / 1000;
 
-	@Override
-	public ZoneId getZone() {
-		return clock.getZone();
-	}
+    @Override
+    public ZoneId getZone() {
+        return clock.getZone();
+    }
 
-	@Override
-	public Clock withZone(ZoneId zone) {
-		clock.withZone(zone);
-		return clock;
-	}
+    @Override
+    public Clock withZone(ZoneId zone) {
+        clock.withZone(zone);
+        return clock;
+    }
 
-	@Override
-	public synchronized Instant instant() {
-		long nanosNow = System.nanoTime();
-		long delta = nanosNow / 1000 - microsStart;
-		return start.plusNanos(delta * 1000);
-	}
+    @Override
+    public synchronized Instant instant() {
+        long nanosNow = System.nanoTime();
+        long delta = nanosNow / 1000 - microsStart;
+        return start.plusNanos(delta * 1000);
+    }
 
 }
