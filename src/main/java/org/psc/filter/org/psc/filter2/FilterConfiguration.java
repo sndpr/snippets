@@ -5,9 +5,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface FilterConfiguration<P, I, O> {
-	List<FilterConfiguration<P, I, O>> getConfigurations();
+    List<FilterConfiguration<P, I, O>> getConfigurations();
 
-	Predicate<P> getFilterCondition();
+    Predicate<P> getFilterCondition();
 
-	Function<I, O> getFilterFunction();
+    Function<I, O> getFilterFunction();
 }

@@ -10,20 +10,20 @@ import java.util.stream.Collectors;
 
 @Getter
 public enum InputFilterConfiguration
-		implements FilterConfiguration<String, List<String>, List<String>> {
-	FILTER(e -> e.contains("a"), e -> e.stream().filter(s -> s.contains("a")).collect(Collectors.toList()));
+        implements FilterConfiguration<String, List<String>, List<String>> {
+    FILTER(e -> e.contains("a"), e -> e.stream().filter(s -> s.contains("a")).collect(Collectors.toList()));
 
-	private Predicate<String> filterCondition;
-	private Function<List<String>, List<String>> filterFunction;
+    private Predicate<String> filterCondition;
+    private Function<List<String>, List<String>> filterFunction;
 
-	private InputFilterConfiguration(Predicate<String> filterCondition,
-			Function<List<String>, List<String>> filterFunction) {
-		this.filterCondition = filterCondition;
-		this.filterFunction = filterFunction;
-	}
+    private InputFilterConfiguration(Predicate<String> filterCondition,
+                                     Function<List<String>, List<String>> filterFunction) {
+        this.filterCondition = filterCondition;
+        this.filterFunction = filterFunction;
+    }
 
-	@Override
-	public List<FilterConfiguration<String, List<String>, List<String>>> getConfigurations() {
-		return Arrays.asList(InputFilterConfiguration.values());
-	}
+    @Override
+    public List<FilterConfiguration<String, List<String>, List<String>>> getConfigurations() {
+        return Arrays.asList(InputFilterConfiguration.values());
+    }
 }
