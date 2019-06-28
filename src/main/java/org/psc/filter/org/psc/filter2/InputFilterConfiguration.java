@@ -26,4 +26,16 @@ public enum InputFilterConfiguration
     public List<FilterConfiguration<String, List<String>, List<String>>> getConfigurations() {
         return Arrays.asList(InputFilterConfiguration.values());
     }
+
+    @Override
+    public Predicate<String> getFilterCondition() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Function<List<String>, List<String>> getFilterFunction() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

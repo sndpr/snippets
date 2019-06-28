@@ -25,4 +25,16 @@ public enum OutputFilterConfiguration implements FilterConfiguration<String, Int
     public List<FilterConfiguration<String, Integer, Integer>> getConfigurations() {
         return Arrays.asList(OutputFilterConfiguration.values());
     }
+
+    @Override
+    public Predicate<String> getFilterCondition() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Function<Integer, Integer> getFilterFunction() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
