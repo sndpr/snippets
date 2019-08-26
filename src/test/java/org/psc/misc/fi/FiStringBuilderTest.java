@@ -1,4 +1,4 @@
-package org.psc.fi;
+package org.psc.misc.fi;
 
 import static org.junit.Assert.assertNotNull;
 
