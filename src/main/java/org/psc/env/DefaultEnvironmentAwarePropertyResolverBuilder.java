@@ -28,12 +28,6 @@ public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements Enviro
     }
 
     @Override
-    public EnvironmentAwarePropertyResolver.Builder<T> properties(Map<String, T> properties) {
-        this.properties = properties;
-        return null;
-    }
-
-    @Override
     public EnvironmentAwarePropertyResolver<T> build() {
         return new DefaultEnvironmentAwarePropertyResolver<>(properties, resolutionStrategy);
     }

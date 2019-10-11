@@ -21,8 +21,6 @@ public interface EnvironmentAwarePropertyResolver<T> {
 
         Builder<T> property(T property, String... environmentValues);
 
-        Builder<T> properties(Map<String, T> properties);
-
         EnvironmentAwarePropertyResolver<T> build();
     }
 
