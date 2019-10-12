@@ -13,7 +13,7 @@ public class DefaultEnvironmentAwarePropertyResolver<T> implements EnvironmentAw
 
     private final Map<String, T> properties;
 
-    private final EnvironmentResolutionStrategy<T> resolutionStrategy;
+    private final ResolutionStrategy<T> resolutionStrategy;
 
     private final DefaultEnvironmentAwarePropertyResolverBuilder<T> builder;
 
@@ -23,7 +23,7 @@ public class DefaultEnvironmentAwarePropertyResolver<T> implements EnvironmentAw
     }
 
     @Override
-    public EnvironmentResolutionStrategy<T> getStrategy() {
+    public ResolutionStrategy<T> getStrategy() {
         return resolutionStrategy;
     }
 

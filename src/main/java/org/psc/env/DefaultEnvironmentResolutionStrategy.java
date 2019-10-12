@@ -2,7 +2,7 @@ package org.psc.env;
 
 import java.util.Map;
 
-public class DefaultEnvironmentResolutionStrategy<T> implements EnvironmentAwarePropertyResolver.EnvironmentResolutionStrategy<T> {
+public class DefaultEnvironmentResolutionStrategy<T> implements EnvironmentAwarePropertyResolver.ResolutionStrategy<T> {
 
     public static final String ENVIRONMENT_PROPERTY_KEY = "environment";
 

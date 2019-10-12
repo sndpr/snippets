@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.BiFunction;
 
 @NoArgsConstructor
-public class DefaultEnvironmentResolutionStrategyV1<T> implements EnvironmentAwarePropertyResolver.EnvironmentResolutionStrategy<T> {
+public class DefaultEnvironmentResolutionStrategyV1<T> implements EnvironmentAwarePropertyResolver.ResolutionStrategy<T> {
 
     public static final String ENVIRONMENT_PROPERTY_KEY = "environment";
 

@@ -10,19 +10,19 @@ public interface EnvironmentAwarePropertyResolver<T> {
 
     Map<String, T> getProperties();
 
-    EnvironmentResolutionStrategy<T> getStrategy();
+    ResolutionStrategy<T> getStrategy();
 
     interface Builder<T> {
-        Builder<T> resolutionStrategy(EnvironmentResolutionStrategy<T> resolutionStrategy);
+        Builder<T> resolutionStrategy(ResolutionStrategy<T> resolutionStrategy);
 
         Builder<T> property(T property, String... environmentValues);
 
-        EnvironmentAwarePropertyResolver<T> build();
+        // TODO: dedicated exception type
+        EnvironmentAwarePropertyResolver<T> build() throws Exception;
     }
 
-    interface EnvironmentResolutionStrategy<T> {
+    interface ResolutionStrategy<T> {
         T apply(Map<String, T> properties);
     }
-
 
 }

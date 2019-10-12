@@ -8,10 +8,10 @@ import static org.junit.Assert.assertThat;
 public class DefaultEnvironmentAwarePropertyResolverTest {
 
     @Test
-    public void test() {
+    public void test() throws Exception {
         DefaultEnvironmentAwarePropertyResolver<String> urlResolver =
-                DefaultEnvironmentAwarePropertyResolver.<String>builder().build("abc")
-                        .qa("qqqq")
+                DefaultEnvironmentAwarePropertyResolver.<String>builder().defaultValue("dummy")
+                        .build("abc")
                         .local("dummy")
                         .prod("prod_123")
                         .build();
@@ -21,10 +21,16 @@ public class DefaultEnvironmentAwarePropertyResolverTest {
 
         assertThat(local, is("dummy"));
 
-        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "prod");
+        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "pRoD");
         String prod = urlResolver.getProperty();
 
         assertThat(prod, is("prod_123"));
+
+        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "qa");
+        String fallbackToLocal = urlResolver.getProperty();
+
+        assertThat(fallbackToLocal, is("dummy"));
+
     }
 
 }
