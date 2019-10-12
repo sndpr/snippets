@@ -12,10 +12,6 @@ public interface EnvironmentAwarePropertyResolver<T> {
 
     EnvironmentResolutionStrategy<T> getStrategy();
 
-    default Builder<T> builder(){
-        return new DefaultEnvironmentAwarePropertyResolverBuilder<>();
-    }
-
     interface Builder<T> {
         Builder<T> resolutionStrategy(EnvironmentResolutionStrategy<T> resolutionStrategy);
 
