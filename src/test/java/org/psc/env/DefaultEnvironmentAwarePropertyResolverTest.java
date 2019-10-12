@@ -9,7 +9,7 @@ public class DefaultEnvironmentAwarePropertyResolverTest {
 
     @Test
     public void test() throws Exception {
-        DefaultEnvironmentAwarePropertyResolver<String> urlResolver =
+        EnvironmentAwarePropertyResolver<String> urlResolver =
                 DefaultEnvironmentAwarePropertyResolver.<String>builder().defaultValue("dummy")
                         .build("abc")
                         .local("dummy")
