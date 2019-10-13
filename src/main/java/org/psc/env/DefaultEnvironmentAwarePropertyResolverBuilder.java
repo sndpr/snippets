@@ -36,7 +36,7 @@ public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements Enviro
     @Override
     public DefaultEnvironmentAwarePropertyResolver<T> build() throws Exception {
         if (defaultValue == null) {
-            // TODO: decidacted excpetion
+            // TODO: dedicated exception
             throw new Exception("default value must not be null");
         }
         properties.put("", defaultValue);
