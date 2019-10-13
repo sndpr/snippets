@@ -36,8 +36,6 @@ public class DefaultEnvironmentAwarePropertyResolverTest {
         String prod = urlResolver.getProperty();
 
         assertThat(prod, is("prod_123"));
-
-
     }
 
     @Test
@@ -53,8 +51,6 @@ public class DefaultEnvironmentAwarePropertyResolverTest {
         String prod = urlResolver.getProperty();
 
         assertThat(prod, is("dummyDefault"));
-
-
     }
 
 }
