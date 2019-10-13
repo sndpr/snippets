@@ -7,13 +7,20 @@ public class DefaultEnvironmentResolutionStrategy<T> implements EnvironmentAware
     public static final String ENVIRONMENT_PROPERTY_KEY = "environment";
 
     private final String environment;
+    private T resolvedValue;
 
-    DefaultEnvironmentResolutionStrategy() {
+    DefaultEnvironmentResolutionStrategy(Map<String, T> properties) {
         environment = System.getProperty(ENVIRONMENT_PROPERTY_KEY).toLowerCase();
+        initialize(properties);
     }
 
     @Override
-    public T apply(Map<String, T> properties) {
-        return properties.getOrDefault(environment, properties.get(""));
+    public void initialize(Map<String, T> properties) {
+        resolvedValue = properties.getOrDefault(environment, properties.get(""));
+    }
+
+    @Override
+    public T apply() {
+        return resolvedValue;
     }
 }

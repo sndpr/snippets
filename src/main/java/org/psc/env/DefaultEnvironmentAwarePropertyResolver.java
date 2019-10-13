@@ -18,11 +18,6 @@ public class DefaultEnvironmentAwarePropertyResolver<T> implements EnvironmentAw
     private final DefaultEnvironmentAwarePropertyResolverBuilder<T> builder;
 
     @Override
-    public Map<String, T> getProperties() {
-        return properties;
-    }
-
-    @Override
     public ResolutionStrategy<T> getStrategy() {
         return resolutionStrategy;
     }

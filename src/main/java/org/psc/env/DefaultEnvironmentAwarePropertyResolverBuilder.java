@@ -60,7 +60,8 @@ public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements Enviro
         }
 
         return new DefaultEnvironmentAwarePropertyResolver<>(properties,
-                resolutionStrategy == null ? new DefaultEnvironmentResolutionStrategy<>() : resolutionStrategy, this);
+                resolutionStrategy == null ? new DefaultEnvironmentResolutionStrategy<>(
+                        properties) : resolutionStrategy, this);
     }
 
     public DefaultEnvironmentAwarePropertyResolverBuilder<T> defaultValue(T defaultValue) {
