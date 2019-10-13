@@ -6,12 +6,12 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
 import java.util.function.BiFunction;
 
+@Deprecated
 @NoArgsConstructor
 public class DefaultEnvironmentResolutionStrategyV1<T> implements EnvironmentAwarePropertyResolver.ResolutionStrategy<T> {
 
     public static final String ENVIRONMENT_PROPERTY_KEY = "environment";
 
-    @Override
     public T apply(Map<String, T> properties) {
         String environment = System.getProperty(ENVIRONMENT_PROPERTY_KEY).toLowerCase();
         T resolvedProperty;
@@ -44,4 +44,13 @@ public class DefaultEnvironmentResolutionStrategyV1<T> implements EnvironmentAwa
         return resolvedProperty;
     }
 
+    @Override
+    public void initialize(Map<String, T> properties) {
+
+    }
+
+    @Override
+    public T apply() {
+        return null;
+    }
 }

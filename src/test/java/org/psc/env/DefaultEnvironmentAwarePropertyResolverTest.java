@@ -8,28 +8,52 @@ import static org.junit.Assert.assertThat;
 public class DefaultEnvironmentAwarePropertyResolverTest {
 
     @Test
-    public void test() throws Exception {
+    public void testLocal() throws Exception {
+        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "");
         EnvironmentAwarePropertyResolver<String> urlResolver =
-                DefaultEnvironmentAwarePropertyResolver.<String>builder().defaultValue("dummy")
+                DefaultEnvironmentAwarePropertyResolver.<String>builder().defaultValue("dummyDefault")
                         .build("abc")
                         .local("dummy")
                         .prod("prod_123")
                         .build();
 
-        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "");
+
         String local = urlResolver.getProperty();
 
-        assertThat(local, is("dummy"));
+        assertThat(local, is("dummyDefault"));
+    }
 
+    @Test
+    public void testProd() throws Exception {
         System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "pRoD");
+        EnvironmentAwarePropertyResolver<String> urlResolver = DefaultEnvironmentAwarePropertyResolver.<String>builder()
+                .defaultValue("dummyDefault")
+                .build("abc")
+                .local("dummy")
+                .prod("prod_123")
+                .build();
+
         String prod = urlResolver.getProperty();
 
         assertThat(prod, is("prod_123"));
 
-        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "qa");
-        String fallbackToLocal = urlResolver.getProperty();
 
-        assertThat(fallbackToLocal, is("dummy"));
+    }
+
+    @Test
+    public void testDefaultFallback() throws Exception {
+        System.setProperty(DefaultEnvironmentResolutionStrategy.ENVIRONMENT_PROPERTY_KEY, "qa");
+        EnvironmentAwarePropertyResolver<String> urlResolver = DefaultEnvironmentAwarePropertyResolver.<String>builder()
+                .defaultValue("dummyDefault")
+                .build("abc")
+                .local("dummy")
+                .prod("prod_123")
+                .build();
+
+        String prod = urlResolver.getProperty();
+
+        assertThat(prod, is("dummyDefault"));
+
 
     }
 

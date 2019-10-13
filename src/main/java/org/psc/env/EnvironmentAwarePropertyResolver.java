@@ -5,10 +5,8 @@ import java.util.Map;
 public interface EnvironmentAwarePropertyResolver<T> {
 
     default T getProperty(){
-        return getStrategy().apply(getProperties());
+        return getStrategy().apply();
     }
-
-    Map<String, T> getProperties();
 
     ResolutionStrategy<T> getStrategy();
 
@@ -22,7 +20,10 @@ public interface EnvironmentAwarePropertyResolver<T> {
     }
 
     interface ResolutionStrategy<T> {
-        T apply(Map<String, T> properties);
+
+        void initialize(Map<String, T> properties);
+
+        T apply();
     }
 
 }
