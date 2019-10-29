@@ -24,6 +24,7 @@ public class DefaultEnvironmentAwarePropertyResolver<T> implements EnvironmentAw
 
     public static <T> DefaultEnvironmentAwarePropertyResolverBuilder<T> builder(){
         return new DefaultEnvironmentAwarePropertyResolverBuilder<>();
+
     }
 
 
