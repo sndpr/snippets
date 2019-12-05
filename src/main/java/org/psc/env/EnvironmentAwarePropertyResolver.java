@@ -1,6 +1,7 @@
 package org.psc.env;
 
 import java.util.Map;
+import java.util.function.Predicate;
 
 public interface EnvironmentAwarePropertyResolver<T> {
 
@@ -14,6 +15,8 @@ public interface EnvironmentAwarePropertyResolver<T> {
         Builder<T> resolutionStrategy(ResolutionStrategy<T> resolutionStrategy);
 
         Builder<T> property(T property, String... environmentValues);
+
+        Builder<T> propertyValueValidator(Predicate<T> propertyValueValidator);
 
         // TODO: dedicated exception type
         EnvironmentAwarePropertyResolver<T> build() throws Exception;

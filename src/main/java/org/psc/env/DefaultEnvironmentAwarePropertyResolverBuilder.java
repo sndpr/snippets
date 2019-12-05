@@ -4,10 +4,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
 
 @NoArgsConstructor
 public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements EnvironmentAwarePropertyResolver.Builder<T> {
 
+    private Predicate<T> propertyValueValidator;
     private T defaultValue;
     private T local;
     private T build;
@@ -34,8 +36,17 @@ public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements Enviro
     }
 
     @Override
+    public EnvironmentAwarePropertyResolver.Builder<T> propertyValueValidator(Predicate<T> propertyValueValidator) {
+        this.propertyValueValidator = propertyValueValidator;
+        return this;
+    }
+
+    @Override
     public DefaultEnvironmentAwarePropertyResolver<T> build() throws Exception {
-        if (defaultValue == null) {
+        if(propertyValueValidator == null){
+            propertyValueValidator = t -> true;
+        }
+        if (defaultValue == null || !propertyValueValidator.test(defaultValue)) {
             // TODO: dedicated exception
             throw new Exception("default value must not be null");
         }
@@ -61,7 +72,7 @@ public class DefaultEnvironmentAwarePropertyResolverBuilder<T> implements Enviro
 
         return new DefaultEnvironmentAwarePropertyResolver<>(properties,
                 resolutionStrategy == null ? new DefaultEnvironmentResolutionStrategy<>(
-                        properties) : resolutionStrategy, this);
+                        properties, propertyValueValidator) : resolutionStrategy, this);
     }
 
     public DefaultEnvironmentAwarePropertyResolverBuilder<T> defaultValue(T defaultValue) {
