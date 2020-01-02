@@ -1,4 +1,4 @@
-package org.psc.misc.snippets;
+package org.psc.pdf;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
