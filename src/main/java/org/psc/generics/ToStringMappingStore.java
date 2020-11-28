@@ -1,7 +1,5 @@
 package org.psc.generics;
 
-import lombok.Getter;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
