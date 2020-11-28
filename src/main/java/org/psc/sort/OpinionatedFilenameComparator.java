@@ -5,28 +5,34 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.*;
+
+/**
+ * Sort file names with a substring of format <code>[opening parenthesis][number][closing parenthesis]</code> e.g.
+ * <code>my file (1).txt</code> after files without such an substring (e.g. <code>my file.txt</code>).
+ */
 public class OpinionatedFilenameComparator implements Comparator<String> {
 
     private static final Pattern FILE_INDEX_PATTERN = Pattern.compile("\\(\\d+\\)");
 
     @Override
     public int compare(String first, String second) {
-        String firstExtension = StringUtils.substringAfterLast(first, ".");
-        String firstWithoutExtension = StringUtils.substringBeforeLast(first, ".");
-        List<String> tokenizedFirst = Stream.of(StringUtils.split(firstWithoutExtension, " "))
-                .collect(Collectors.toList());
+        String firstExtension = substringAfterLast(first, ".");
+        String firstWithoutExtension = substringBeforeLast(first, ".");
+        List<String> tokenizedFirst = Arrays.stream(split(firstWithoutExtension, " "))
+                .collect(toList());
         tokenizedFirst.add(firstExtension);
 
-        String secondExtension = StringUtils.substringAfterLast(second, ".");
-        String secondWithoutExtension = StringUtils.substringBeforeLast(second, ".");
-        List<String> tokenizedSecond = Stream.of(StringUtils.split(secondWithoutExtension, " "))
-                .collect(Collectors.toList());
+        String secondExtension = substringAfterLast(second, ".");
+        String secondWithoutExtension = substringBeforeLast(second, ".");
+        List<String> tokenizedSecond = Arrays.stream(split(secondWithoutExtension, " "))
+                .collect(toList());
         tokenizedSecond.add(secondExtension);
 
         FilenameIndexConfiguration firstConfiguration = findFilenameIndex(tokenizedFirst);
