@@ -2,17 +2,15 @@ package org.psc.clock;
 
 import java.sql.Timestamp;
 import java.time.Clock;
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 @Slf4j
-public class MicroClockTest {
+class MicroClockTest {
 
     @Test
-    public void testMicroClock() throws InterruptedException {
+    void testMicroClock() throws InterruptedException {
         Clock microClock = new MicroClock();
         Timestamp now = Timestamp.from(microClock.instant());
         log.info("now = {}", now.toString());

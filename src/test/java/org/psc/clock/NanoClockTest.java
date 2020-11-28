@@ -1,17 +1,16 @@
 package org.psc.clock;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+
 import java.sql.Timestamp;
 import java.time.Clock;
 
-import org.junit.Test;
-
-import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
-public class NanoClockTest {
+class NanoClockTest {
 
     @Test
-    public void testNanoClock() throws InterruptedException {
+    void testNanoClock() throws InterruptedException {
         Clock nanoClock = new NanoClock();
         Timestamp now = Timestamp.from(nanoClock.instant());
         log.info("now = {}", now.toString());

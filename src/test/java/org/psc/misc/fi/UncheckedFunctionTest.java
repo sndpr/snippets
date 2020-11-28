@@ -1,37 +1,40 @@
 package org.psc.misc.fi;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
 
-public class UncheckedFunctionTest {
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    @Test(expected = RuntimeException.class)
-    public void testUncheckedFunctionException() {
-        TestFunction<String, String> testFunction = new TestFunction<>("abc");
-        testFunction.apply("err");
+class UncheckedFunctionTest {
+
+    @Test
+    void testUncheckedFunctionException() {
+        assertThrows(RuntimeException.class, () -> {
+            TestFunction<String, String> testFunction = new TestFunction<>("abc");
+            testFunction.apply("err");
+        });
     }
 
     @Test
-    public void testUncheckedFunction() {
+    void testUncheckedFunction() {
         TestFunction<Integer, String> testFunction = new TestFunction<>("abc");
         String result = testFunction.apply(0);
-        assertThat(result, is("abc"));
+        assertThat(result).isEqualTo("abc");
     }
 
     @Test
-    public void testUncheckedFunction2() {
+    void testUncheckedFunction2() {
         UncheckedFunction<Integer, Integer> testFunction = i -> i + 5;
         int result = testFunction.apply(2);
-        assertThat(result, is(7));
+        assertThat(result).isEqualTo(7);
     }
 
     @Test
-    public void testAppendXyz(){
+    void testAppendXyz(){
         UncheckedFunction<String, String> testFunction = UncheckedFunctionTest::appendXyz;
         String result = testFunction.apply("abc");
-        assertThat(result, is("abcxyz"));
+        assertThat(result).isEqualTo("abcxyz");
     }
 
     private static String appendXyz(String base) throws Exception{

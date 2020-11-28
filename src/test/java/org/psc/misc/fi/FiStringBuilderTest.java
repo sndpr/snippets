@@ -1,17 +1,17 @@
 package org.psc.misc.fi;
 
-import static org.junit.Assert.assertNotNull;
 
-import org.junit.Test;
-import org.psc.misc.fi.FiStringBuilder;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Slf4j
-public class FiStringBuilderTest {
+class FiStringBuilderTest {
 
     @Test
-    public void testFiStringBuilder() {
+    void testFiStringBuilder() {
         String concatenatedString = new FiStringBuilder().apply("asdasd", ", ", "sdadsad", ": qwewqeqw");
         assertNotNull(concatenatedString);
         log.info(concatenatedString);
