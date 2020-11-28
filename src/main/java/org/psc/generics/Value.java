@@ -16,8 +16,8 @@ public class Value<T> {
 
     public static void main(String[] args) {
         List<Value<?>> list = new ArrayList<>();
-        list.add(new Value<String>("sadasd"));
-        list.add(new Value<Integer>(555));
+        list.add(new Value<>("sadasd"));
+        list.add(new Value<>(555));
 
         String s = (String) list.get(0).getValue();
         System.out.println(s);
