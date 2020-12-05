@@ -130,7 +130,7 @@ public class InMemoryZipper {
 
     }
 
-    private class TlsSessionResumptionFtpClient extends FTPSClient {
+    private static class TlsSessionResumptionFtpClient extends FTPSClient {
 
         @Override
         protected void _prepareDataSocket_(final Socket socket) throws IOException {
