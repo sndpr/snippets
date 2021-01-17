@@ -11,4 +11,10 @@ class MiscTest {
     void testConstantGeometricMean() {
         assertThat(Misc.constantGeometricMean()).isCloseTo(2.77, Offset.offset(0.1));
     }
+
+    @Test
+    void testInlineRecord() {
+        var misc = new Misc();
+        assertThat(misc.inlineRecord()).isEqualTo(0);
+    }
 }
