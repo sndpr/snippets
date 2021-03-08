@@ -1,5 +1,6 @@
 package org.psc.misc.snippets;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
@@ -16,5 +17,14 @@ class MiscTest {
     void testInlineRecord() {
         var misc = new Misc();
         assertThat(misc.inlineRecord()).isEqualTo(0);
+    }
+
+    @Test
+    void assignmentExpression() {
+        var misc = new Misc();
+        Pair<Integer, Integer> intIntPair = misc.assignmentExpression();
+        assertThat(intIntPair)
+                .matches(it -> it.getLeft() == 2)
+                .matches(it -> it.getLeft().intValue() == it.getRight().intValue());
     }
 }

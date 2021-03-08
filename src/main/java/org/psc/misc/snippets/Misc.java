@@ -1,6 +1,7 @@
 package org.psc.misc.snippets;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.math3.stat.StatUtils;
 
 import java.util.Arrays;
@@ -9,6 +10,17 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class Misc {
+
+    public Pair<Integer, Integer> assignmentExpression(){
+        int a;
+        int b = a = 2;
+
+        log.info("{}", a);
+        log.info("{}", b);
+
+        return Pair.of(a, b);
+    }
+
 
     public <T> void processArray(T[] array) {
         for (T elem : array) {
