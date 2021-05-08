@@ -6,9 +6,9 @@ import java.time.ZoneId;
 
 public class NanoClock extends Clock {
 
-    private Clock clock = Clock.systemDefaultZone();
-    private Instant start = Instant.now();
-    private long nanosStart = System.nanoTime();
+    private final Clock clock = Clock.systemDefaultZone();
+    private final Instant start = Instant.now();
+    private final long nanosStart = System.nanoTime();
 
     @Override
     public ZoneId getZone() {

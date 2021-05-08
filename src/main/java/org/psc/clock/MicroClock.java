@@ -7,10 +7,10 @@ import java.time.temporal.ChronoField;
 
 public class MicroClock extends Clock {
 
-    private Clock clock = Clock.systemDefaultZone();
-    private Instant start = Instant.now().with(ChronoField.NANO_OF_SECOND,
+    private final Clock clock = Clock.systemDefaultZone();
+    private final Instant start = Instant.now().with(ChronoField.NANO_OF_SECOND,
             (int) (((int) (Instant.now().getNano() / 1e6)) * 1e6));
-    private long microsStart = System.nanoTime() / 1000;
+    private final long microsStart = System.nanoTime() / 1000;
 
     @Override
     public ZoneId getZone() {
