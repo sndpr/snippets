@@ -13,13 +13,13 @@ class NanoClockTest {
     void testNanoClock() throws InterruptedException {
         Clock nanoClock = new NanoClock();
         Timestamp now = Timestamp.from(nanoClock.instant());
-        log.info("now = {}", now.toString());
+        log.info("now = {}", now);
 
         Thread.sleep(1234);
 
         Timestamp now1 = Timestamp.from(nanoClock.instant());
         Timestamp now2 = Timestamp.from(nanoClock.instant());
-        log.info("now1 = {}", now1.toString());
-        log.info("now2 = {}", now2.toString());
+        log.info("now1 = {}", now1);
+        log.info("now2 = {}", now2);
     }
 }
