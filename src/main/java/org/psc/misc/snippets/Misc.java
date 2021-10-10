@@ -11,6 +11,13 @@ import java.util.stream.Collectors;
 @Slf4j
 public class Misc {
 
+    public static void main(String[] args) {
+        log.info("processors: {}", Runtime.getRuntime().availableProcessors());
+        log.info("totalMemory: {}", Runtime.getRuntime().freeMemory());
+        log.info("maxMemory: {}", Runtime.getRuntime().freeMemory());
+        log.info("freeMemory: {}", Runtime.getRuntime().freeMemory());
+    }
+
     public Pair<Integer, Integer> assignmentExpression(){
         int a;
         int b = a = 2;
