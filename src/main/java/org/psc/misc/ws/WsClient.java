@@ -28,7 +28,7 @@ public class WsClient {
         int responseCode = connection.getResponseCode();
         String response = WsClient.read(connection.getInputStream());
         connection.disconnect();
-        LOGGER.info("HTTP {} - {}", String.valueOf(responseCode), response);
+        LOGGER.info("HTTP {} - {}", responseCode, response);
     }
 
     private static String read(InputStream inputStream) throws IOException {
