@@ -6,70 +6,62 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Stream;
 
-class InOutProcessorTest {
+class SealedInOutProcessorTest {
 
     @Test
     void shouldProcessInOuts() {
-        var inOutProcessor = new InOutProcessor(List.of(new IntInOut(), new StringInOut(), new IntInOut(5)));
+        var inOutProcessor = new SealedInOutProcessor(List.of(
+                new IntSealedInOut(),
+                new StringSealedInOut(),
+                new IntSealedInOut(5)));
         inOutProcessor.processInOuts();
     }
 
-    static class IntInOut implements InOut<Integer> {
-
+    static class IntSealedInOut extends SealedInOut.Simple<Integer> {
         private final int modifier;
 
-        IntInOut(int modifier) {
+        IntSealedInOut(int modifier) {
             this.modifier = modifier;
         }
 
-        IntInOut() {
+        IntSealedInOut() {
             this(1);
         }
 
         @Override
         public List<Integer> getItems() {
-            return Stream.of(1, 2, 3, 4, 5).map(it -> it * modifier).toList();
+            return Stream.of(1, 1, 1, 2, 2, 8977878).map(it -> it * modifier).toList();
         }
 
         @Override
         public void processItems(List<Integer> items) {
-            items.forEach(it -> System.out.printf("Int: %s%n", it));
+            items.forEach(item -> System.out.printf("Int: %s%n", item));
         }
-
-        @Override
-        public List<Integer> getPartialItems(LocalDateTime from) {
-            return null;
-        }
-
-        @Override
-        public void processPartialItems(List<Integer> items) {
-
-        }
-
     }
 
-    static class StringInOut implements InOut<String> {
+    static class StringSealedInOut extends SealedInOut.Complex<String> {
 
         @Override
         public List<String> getItems() {
-            return List.of("hello", "world");
+            return List.of("always", "dumb", "forever", "stupid");
         }
 
         @Override
         public void processItems(List<String> items) {
-            items.forEach(it -> System.out.printf("String: %s%n", it));
+            items.forEach(item -> System.out.printf("String: %s%n", item));
         }
 
         @Override
         public List<String> getPartialItems(LocalDateTime from) {
-            return null;
+            return List.of(from.toString());
         }
 
         @Override
         public void processPartialItems(List<String> items) {
-
+            processItems(items);
         }
 
     }
+
 
 }

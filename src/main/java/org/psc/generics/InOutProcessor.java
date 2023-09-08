@@ -10,10 +10,7 @@ public class InOutProcessor {
     private final List<InOut<?>> inOuts;
 
     void processInOuts() {
-        inOuts.forEach(inOut -> {
-            List items = inOut.getItems();
-            inOut.processItems(items);
-        });
+        inOuts.forEach(InOut::run);
     }
 
 }
