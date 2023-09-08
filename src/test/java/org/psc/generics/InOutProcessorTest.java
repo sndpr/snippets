@@ -13,7 +13,7 @@ class InOutProcessorTest {
         inOutProcessor.processInOuts();
     }
 
-    class IntInOut implements InOut<Integer> {
+    static class IntInOut implements InOut<Integer> {
 
         private final int modifier;
 
@@ -37,7 +37,7 @@ class InOutProcessorTest {
 
     }
 
-    class StringInOut implements InOut<String> {
+    static class StringInOut implements InOut<String> {
 
         @Override
         public List<String> getItems() {
