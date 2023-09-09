@@ -13,10 +13,10 @@ public abstract sealed class AbstractSealedInOut<T> permits AbstractSealedInOut.
         processItems(getItems());
     }
 
-    abstract non-sealed class Simple<T> extends AbstractSealedInOut<T> {
+    abstract non-sealed class Simple extends AbstractSealedInOut<T> {
     }
 
-    abstract non-sealed class Complex<T> extends AbstractSealedInOut<T> {
+    abstract non-sealed class Complex extends AbstractSealedInOut<T> {
 
         public abstract List<T> getPartialItems(LocalDateTime from);
 
