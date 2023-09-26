@@ -17,7 +17,6 @@ public class Summarizer {
     }
 
     static int simpleArraySum(int n, int[] ar) {
-        // Complete this function
         return Arrays.stream(ar).sum();
     }
 
