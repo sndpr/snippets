@@ -11,6 +11,13 @@ import java.util.stream.Collectors;
 @Slf4j
 public class Misc {
 
+    private final String x;
+
+    {
+        x = String.valueOf(System.nanoTime());
+        System.out.println("initialized Misc instance");
+    }
+
     public static void main(String[] args) {
         log.info("processors: {}", Runtime.getRuntime().availableProcessors());
         log.info("totalMemory: {}", Runtime.getRuntime().freeMemory());
@@ -18,7 +25,7 @@ public class Misc {
         log.info("freeMemory: {}", Runtime.getRuntime().freeMemory());
     }
 
-    public Pair<Integer, Integer> assignmentExpression(){
+    public Pair<Integer, Integer> assignmentExpression() {
         int a;
         int b = a = 2;
 
