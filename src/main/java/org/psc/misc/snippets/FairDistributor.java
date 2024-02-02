@@ -1,5 +1,7 @@
 package org.psc.misc.snippets;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class FairDistributor {
 
     }
 
-    @org.jetbrains.annotations.Contract(pure = true)
+    @Contract(pure = true)
     private static int calcMinEqualizationSteps(int difference) {
         int steps = difference / 5;
         int remainder = difference - (steps * 5);
