@@ -43,7 +43,7 @@ public class PythonGuestScript {
                 def add(a, b):
                     return a + b
                     
-                # does it know accept annotations?
+                # does it accept type annotations?
                 def greet(name: str) -> str:
                     print('hi from python')
                     return f'Hello {name}!'
