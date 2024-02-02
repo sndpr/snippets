@@ -50,7 +50,7 @@ public class PythonGuestScript {
                     
                     
                 def sum_of_squares(ints: [int]) -> int:
-                    return sum( i * i for i in ints)
+                    return sum( i * i for i in ints )
                 """);
             long anotherLong = evaluatedContext.invokeMember("add", 51561, 8978).asLong();
             System.out.println(anotherLong);
